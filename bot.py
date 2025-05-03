@@ -131,5 +131,5 @@ async def bcast(_, m: Message):
 
     await lel.edit(f"✅ Successfully sent to `{success}` users.\n❌ Failed to `{failed}` users.\n👾 Found `{blocked}` blocked users.\n👻 Found `{deactivated}` deactivated users.")
 
-print("I'm alive now!")
+print("I'm alive now! Thx To @Otakukart7")
 app.run()
