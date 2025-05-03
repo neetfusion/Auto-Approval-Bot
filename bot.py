@@ -139,6 +139,33 @@ async def bcast(_, m: Message):
 print("I'm alive now! Thx To @Otakukart7")
 app.run()
 
+import asyncio
+from aiohttp import web
+
+# Dummy HTTP server for Koyeb health check
+async def dummy_handler(request):
+    return web.Response(text="I'm alive!")
+
+async def start_web():
+    app_web = web.Application()
+    app_web.router.add_get("/", dummy_handler)
+    runner = web.AppRunner(app_web)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", 8000)
+    await site.start()
+
+# Combine web server + Pyrogram
+async def main():
+    print("I'm alive now!")
+    await start_web()
+    await app.start()
+    await idle()
+    await app.stop()
+
+from pyrogram import idle
+
+asyncio.run(main())
+
 @app.on_callback_query(filters.regex("about"))
 async def show_about(_, cb: CallbackQuery):
     await cb.answer()
