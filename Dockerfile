@@ -16,5 +16,8 @@ COPY . /app
 # Set the environment variable to prevent Python from buffering output (useful for logging)
 ENV PYTHONUNBUFFERED 1
 
+# Expose the port your application will run on
+EXPOSE 8000
+
 # Run the bot with the appropriate command (assuming your entry point is bot.py)
 CMD ["python3", "bot.py"]
