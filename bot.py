@@ -92,12 +92,17 @@ async def start(_, m: Message):
         await m.reply_text("**⚠️ Access Denied! ⚠️\n\nPlease join my update channel to use me. If you've joined the channel, click on 'Check Again' to confirm.**", reply_markup=key)
         return
 
-    keyboard = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton("🗯 Channel", url="https://t.me/Anime_Flasher"),
-            InlineKeyboardButton("💬 Support", url="https://t.me/weoo_chats")
-        ]]
-    )
+      keyboard = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton("Anime Flasher", url="https://t.me/Anime_Flasher"),
+                InlineKeyboardButton("About", callback_data="about")
+            ],
+            [
+                InlineKeyboardButton("➕ Add Me To Your Channel ➕", url="https://t.me/YourBotUsername?startchannel=true")
+            ]
+        ]
+      )
 
     await m.reply_photo("https://i.ibb.co/CKHPGqWD/f1724820ad0b.jpg", caption="🍁 Hello {}!\nI’m an auto approve bot. I can approve users in groups & channels. Add me to your chat and promote me to admin with 'add members' permission.".format(m.from_user.mention), reply_markup=keyboard)
 
@@ -133,3 +138,18 @@ async def bcast(_, m: Message):
 
 print("I'm alive now! Thx To @Otakukart7")
 app.run()
+
+@app.on_callback_query(filters.regex("about"))
+async def show_about(_, cb: CallbackQuery):
+    await cb.answer()
+    await cb.message.edit_text(
+        text="""
+**◈ ᴄʀᴇᴀᴛᴏʀ:** ʟᴏᴋɪɪ ᴛᴇɴ ɴᴏ  
+**◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ:** ʟᴏᴋɪɪ ᴛᴇɴ ɴᴏ  
+**◈ ᴀɴɪᴍᴇ ᴄʜᴀɴɴᴇʟ:** [ᴀɴɪᴍᴇ ғʟᴀsʜᴇʀ](https://t.me/Anime_Flasher)  
+**◈ ᴏɴɢᴏɪɴɢ ᴄʜᴀɴɴᴇʟ:** [ᴏɴɢᴏɪɴɢ ғʟᴀsʜᴇʀ](https://t.me/Ongoing_Flasher)  
+**◈ ʜᴇɴᴛᴀɪ:** [ʜᴇɴᴛᴀɪ ғʟᴀsʜᴇʀ](https://t.me/Hentai_Flasher)  
+**◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ:** ʜᴜɴᴛᴇʀ
+        """,
+        disable_web_page_preview=True
+    )
