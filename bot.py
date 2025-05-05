@@ -92,7 +92,7 @@ async def start(_, m: Message):
         await m.reply_text("**⚠️ Access Denied! ⚠️\n\nPlease join my update channel to use me. If you've joined the channel, click on 'Check Again' to confirm.**", reply_markup=key)
         return
 
-      keyboard = InlineKeyboardMarkup(
+    keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton("Anime Flasher", url="https://t.me/Anime_Flasher"),
@@ -102,7 +102,7 @@ async def start(_, m: Message):
                 InlineKeyboardButton("➕ Add Me To Your Channel ➕", url="https://t.me/YourBotUsername?startchannel=true")
             ]
         ]
-      )
+    )
 
     await m.reply_photo("https://i.ibb.co/CKHPGqWD/f1724820ad0b.jpg", caption="🍁 Hello {}!\nI’m an auto approve bot. I can approve users in groups & channels. Add me to your chat and promote me to admin with 'add members' permission.".format(m.from_user.mention), reply_markup=keyboard)
 
