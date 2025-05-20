@@ -9,7 +9,7 @@ from pyrogram.types import (
     CallbackQuery
 )
 from pymongo import MongoClient
-from config import API_ID, API_HASH, BOT_TOKEN, FORCE_CHANNEL, SUDO, MONGO_URI, PHOTO_URL
+from configs import API_ID, API_HASH, BOT_TOKEN, FORCE_CHANNEL, SUDO, MONGO_URI, PHOTO_URL
 
 # Configure logging
 logging.basicConfig(
