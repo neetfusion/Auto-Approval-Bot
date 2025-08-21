@@ -49,11 +49,11 @@ python bot.py
 
 Credits
 
-Bot Developer: Hunter
+Bot Developer: Sciencemate
 
-Project Repository: GitHub - Anime019ongoing
+Project Repository: GitHub - Sciencemate
 
 ### Contact
-https://t.me/Otakukart7 - Hunter
+https://t.me/Sciencemate01 - Hunter
 
 
